@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package kantmq.v1;
+
+
+option go_package = "kantmq/api/kantmq/v1;v1";
+
+
+message Empty {
+    
+}

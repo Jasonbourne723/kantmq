@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package kantmq.v1;
+
+import "kantmq/v1/basic.proto";
+
+option go_package = "kantmq/api/kantmq/v1;v1";
+
+service Management {
+    rpc CreateTopic(CreateTopicRequest) returns (Empty);
+    rpc DeleteTopic(DeleteTopicRequest) returns (Empty);
+    rpc GetTopics(GetTopicsRequest) returns (GetTopicsResponse);
+}
+
+message CreateTopicRequest {
+    string name = 1;
+    int32 number_of_partition = 2;
+    int32 number_of_replicas = 3;
+}
+
+message DeleteTopicRequest {
+    string name = 1;
+}
+
+message TopicInfo {
+    string name = 1;
+    int32 number_of_partition = 2;
+    int32 number_of_replicas = 3;
+}
+
+message GetTopicsRequest {
+
+}
+
+message GetTopicsResponse {
+    repeated TopicInfo items = 1;
+}
